@@ -1,0 +1,14 @@
+{% extends 'roll/base.html' %}
+
+{% block content %}
+<h2>Search Results for "{{ query }}"</h2>
+{% if found %}
+<ul>
+    {% for student in students %}
+        <li>{{ student.stuname }} - {{ student.stuemail }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No Data</p>
+{% endif %}
+{% endblock %}

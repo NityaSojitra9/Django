@@ -1,0 +1,28 @@
+{% extends 'roll/base.html' %}
+
+{% block content %}
+<h2>All Students</h2>
+<form method="get" action="{% url 'search' %}">
+    <input type="text" name="q" placeholder="Search by name">
+    <button type="submit">Search</button>
+</form>
+<br>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Result</th>
+        <th>More Info</th>
+    </tr>
+    {% for student in students %}
+    <tr>
+        <td>{{ student.stuid }}</td>
+        <td>{{ student.stuname }}</td>
+        <td>{{ student.stuemail }}</td>
+        <td>{{ student.sturesult }}</td>
+        <td><a href="{% url 'stuinformation' student.id %}">Info</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
